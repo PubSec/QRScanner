@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
+import 'package:qrscanner/view/generatorview.dart';
 import 'package:qrscanner/view/scannerview.dart';
 
 class HomeView extends StatefulWidget {
@@ -51,7 +51,20 @@ class _HomeViewState extends State<HomeView> {
                   );
                 },
                 icon: const Icon(Icons.qr_code_scanner_rounded),
-              )
+              ),
+              const Text('Click the button to generate a qrcode'),
+              IconButton(
+                onPressed: () {
+                  Navigator.of(
+                    context,
+                  ).push(
+                    MaterialPageRoute(
+                      builder: (context) => const GeneratorView(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.qr_code_scanner_rounded),
+              ),
             ],
           )
         ],

@@ -12,12 +12,17 @@ class ScannerView extends StatelessWidget {
         onCapture: (Result result) {
           Navigator.of(context).pop();
           showDialog(
-              context: context,
-              builder: (context) {
-                return Dialog(
-                  child: Center(child: Text(result.text)),
-                );
-              });
+            context: context,
+            builder: (context) {
+              return Dialog(
+                child: Container(
+                    height: 80,
+                    width: 50,
+                    padding: const EdgeInsets.all(20),
+                    child: Text(result.text)),
+              );
+            },
+          );
         },
       ),
     );
