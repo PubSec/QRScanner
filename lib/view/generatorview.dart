@@ -9,10 +9,10 @@ class GeneratorView extends StatefulWidget {
 }
 
 class _GeneratorViewState extends State<GeneratorView> {
+  final TextEditingController textEditingController = TextEditingController();
+  Widget qrPreviewWidget = const Text('Hello');
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
-    PrettyQrView? userPost;
     return Scaffold(
       appBar: AppBar(
         title: const Text('QRGenerator'),
@@ -26,7 +26,7 @@ class _GeneratorViewState extends State<GeneratorView> {
           children: [
             Expanded(
                 child: Container(
-              child: userPost,
+              child: qrPreviewWidget,
             )),
             TextField(
               autofocus: true,
@@ -38,8 +38,12 @@ class _GeneratorViewState extends State<GeneratorView> {
             ),
             MaterialButton(
               onPressed: () {
-                PrettyQrView.data(
+                qrPreviewWidget = PrettyQrView.data(
                     data: textEditingController.text, errorCorrectLevel: 3);
+                setState(() {
+                  qrPreviewWidget = PrettyQrView.data(
+                      data: textEditingController.text, errorCorrectLevel: 3);
+                });
               },
               child: const Text('Generate'),
             )
