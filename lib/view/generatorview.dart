@@ -10,7 +10,9 @@ class GeneratorView extends StatefulWidget {
 
 class _GeneratorViewState extends State<GeneratorView> {
   final TextEditingController textEditingController = TextEditingController();
-  Widget qrPreviewWidget = const Text('Hello');
+  Widget qrPreviewWidget = const FlutterLogo(
+    size: 500,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +23,12 @@ class _GeneratorViewState extends State<GeneratorView> {
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-                child: Container(
               child: qrPreviewWidget,
-            )),
+            ),
             TextField(
               autofocus: true,
               controller: textEditingController,
@@ -38,12 +39,21 @@ class _GeneratorViewState extends State<GeneratorView> {
             ),
             MaterialButton(
               onPressed: () {
-                qrPreviewWidget = PrettyQrView.data(
-                    data: textEditingController.text, errorCorrectLevel: 3);
-                setState(() {
-                  qrPreviewWidget = PrettyQrView.data(
-                      data: textEditingController.text, errorCorrectLevel: 3);
-                });
+                setState(
+                  () {
+                    qrPreviewWidget = PrettyQrView.data(
+                      data: textEditingController.text,
+                      errorCorrectLevel: QrErrorCorrectLevel.M,
+                      decoration: const PrettyQrDecoration(
+                        shape: PrettyQrRoundedSymbol(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(40),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
               },
               child: const Text('Generate'),
             )
