@@ -1,4 +1,4 @@
-package io.github.pubsec.qrscanner
+package io.github.pubsec
 
 import io.flutter.embedding.android.FlutterActivity
 

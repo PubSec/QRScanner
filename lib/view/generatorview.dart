@@ -10,9 +10,8 @@ class GeneratorView extends StatefulWidget {
 
 class _GeneratorViewState extends State<GeneratorView> {
   final TextEditingController textEditingController = TextEditingController();
-  Widget qrPreviewWidget = const FlutterLogo(
-    size: 500,
-  );
+  Widget qrPreviewWidget = const Text('');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

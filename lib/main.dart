@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qrscanner/view/generatorview.dart';
-// import 'package:qrscanner/view/homeview.dart';
+import 'package:qrscanner/view/homeview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
+        primaryColor: Colors.blue,
       ),
-      home: const GeneratorView(),
+      home: const HomeView(),
     );
   }
 }
