@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:qrscanner/provider/gencoderesult.dart';
 
-class GeneratorView extends StatefulWidget {
+class GeneratorView extends ConsumerStatefulWidget {
   const GeneratorView({super.key});
 
   @override
-  State<GeneratorView> createState() => _GeneratorViewState();
+  ConsumerState<GeneratorView> createState() => _GeneratorViewState();
 }
 
-class _GeneratorViewState extends State<GeneratorView> {
+class _GeneratorViewState extends ConsumerState<GeneratorView> {
   final TextEditingController textEditingController = TextEditingController();
-  Widget qrPreviewWidget = const Text('');
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,16 @@ class _GeneratorViewState extends State<GeneratorView> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: qrPreviewWidget,
+              child: ref.watch(genCodeNotifierProvider),
+            ),
+            SizedBox(
+              height: 100,
             ),
             TextField(
               autofocus: true,
@@ -38,21 +41,9 @@ class _GeneratorViewState extends State<GeneratorView> {
             ),
             MaterialButton(
               onPressed: () {
-                setState(
-                  () {
-                    qrPreviewWidget = PrettyQrView.data(
-                      data: textEditingController.text,
-                      errorCorrectLevel: QrErrorCorrectLevel.M,
-                      decoration: const PrettyQrDecoration(
-                        shape: PrettyQrRoundedSymbol(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40),
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                );
+                ref
+                    .read(genCodeNotifierProvider.notifier)
+                    .getGenCodeResult(textEditingController.text);
               },
               child: const Text('Generate'),
             )

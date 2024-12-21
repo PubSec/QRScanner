@@ -1,35 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:qrscanner/provider/scanresultprovider.dart';
 
-class ScannerView extends StatelessWidget {
+class ScannerView extends ConsumerWidget {
   const ScannerView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Center(
-        child: QRCodeDartScanView(
-          resolutionPreset: QRCodeDartScanResolutionPreset.high,
-          widthPreview: 200,
-          heightPreview: 400,
-          onCapture: (Result result) {
-            Navigator.of(context).pop();
-            showDialog(
-              context: context,
-              builder: (context) {
-                return Dialog(
-                  child: Container(
-                    height: 80,
-                    width: 50,
-                    padding: const EdgeInsets.all(20),
-                    child: Text(result.text),
-                  ),
-                );
-              },
-            );
-          },
+      body: Column(children: [
+        ref.read(scanResultNotifierProvider.notifier).getScanResult(),
+        Dialog(
+          child: Container(
+            height: 80,
+            width: 50,
+            padding: const EdgeInsets.all(20),
+            child: Text(ref.read(scanResultNotifierProvider)),
+          ),
         ),
-      ),
+      ]),
     );
   }
 }
