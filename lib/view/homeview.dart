@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     );
                   },
-                  label: const Text('Scanner'),
+                  label: const Text('Scan Code'),
                   icon: const Icon(
                     Icons.qr_code_scanner,
                   ),
@@ -65,9 +65,10 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     );
                   },
-                  label: const Text('Generator'),
+                  label: const Text('Generate Code'),
                   icon: const Icon(Icons.create),
-                )
+                ),
+                
               ],
             )
           ],
