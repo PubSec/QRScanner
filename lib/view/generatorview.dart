@@ -35,7 +35,7 @@ class _GeneratorViewState extends ConsumerState<GeneratorView> {
               autofocus: true,
               controller: textEditingController,
               decoration: const InputDecoration(
-                label: Text('Enter the data'),
+                label: Text('Enter data'),
                 border: OutlineInputBorder(),
               ),
             ),
