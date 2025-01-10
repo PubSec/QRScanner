@@ -37,26 +37,26 @@ packages:
     dependency: transitive
     description:
       name: camera_android_camerax
-      sha256: "2985b8e5fca62709ebb2150962b1dae0444ba0a112be888ccf21e8371a1406d9"
+      sha256: ecadc214daed34d8503540525d26577731c066f1993c254aa5272da7629e8f10
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.10+1"
+    version: "0.6.12"
   camera_avfoundation:
     dependency: transitive
     description:
       name: camera_avfoundation
-      sha256: "2e4c568f70e406ccb87376bc06b53d2f5bebaab71e2fbcc1a950e31449381bcf"
+      sha256: c3038e6e72e284b14ad246a419f26908c08f8886d114cb8a2e351988439bfa68
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.17+5"
+    version: "0.9.17+6"
   camera_platform_interface:
     dependency: transitive
     description:
       name: camera_platform_interface
-      sha256: b3ede1f171532e0d83111fe0980b46d17f1aa9788a07a2fbed07366bbdbb9061
+      sha256: "953e7baed3a7c8fae92f7200afeb2be503ff1a17c3b4e4ed7b76f008c2810a31"
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.0"
+    version: "2.9.0"
   camera_web:
     dependency: transitive
     description:
@@ -188,10 +188,10 @@ packages:
     dependency: transitive
     description:
       name: http_parser
-      sha256: "76d306a1c3afb33fe82e2bbacad62a61f409b5634c915fceb0d799de1a913360"
+      sha256: "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.1"
+    version: "4.1.2"
   image:
     dependency: transitive
     description:
@@ -376,14 +376,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
-  riverpod_annotation:
-    dependency: "direct main"
-    description:
-      name: riverpod_annotation
-      sha256: e14b0bf45b71326654e2705d462f21b958f987087be850afd60578fcd502d1b8
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.6.1"
   simple_barcode_scanner:
     dependency: "direct main"
     description:
@@ -519,4 +511,4 @@ packages:
     version: "1.1.2"
 sdks:
   dart: ">=3.6.0 <4.0.0"
-  flutter: ">=3.24.0"
+  flutter: ">=3.27.0"

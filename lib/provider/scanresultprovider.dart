@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
+import 'package:simple_barcode_scanner/simple_barcode_scanner.dart';
 
 class ScanResultNotifier extends Notifier<String> {
   //initial value

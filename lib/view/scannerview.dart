@@ -9,13 +9,13 @@ class ScannerView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Column(children: [
-        ref.read(scanResultNotifierProvider.notifier).getScanResult(),
+        ref.watch(scanResultNotifierProvider.notifier).getScanResult(),
         Dialog(
           child: Container(
             height: 80,
             width: 50,
             padding: const EdgeInsets.all(20),
-            child: Text(ref.read(scanResultNotifierProvider)),
+            child: Text(ref.watch(scanResultNotifierProvider)),
           ),
         ),
       ]),
