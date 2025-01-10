@@ -8,17 +8,29 @@ class ScannerView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Column(children: [
-        ref.watch(scanResultNotifierProvider.notifier).getScanResult(),
-        Dialog(
-          child: Container(
-            height: 80,
-            width: 50,
-            padding: const EdgeInsets.all(20),
-            child: Text(ref.watch(scanResultNotifierProvider)),
+      body: Column(
+        children: [
+          ref.read(scanResultNotifierProvider.notifier).getScanResult(),
+          SizedBox(
+            height: 50,
           ),
-        ),
-      ]),
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.grey,
+            ),
+            child: Expanded(
+              child: SelectableText(
+                ref.watch(scanResultNotifierProvider).isEmpty
+                    ? 'Nothing to show'
+                    : ref.watch(scanResultNotifierProvider),
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
