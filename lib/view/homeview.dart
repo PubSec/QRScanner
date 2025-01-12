@@ -68,7 +68,6 @@ class _HomeViewState extends State<HomeView> {
                   label: const Text('Generate Code'),
                   icon: const Icon(Icons.create),
                 ),
-                
               ],
             )
           ],

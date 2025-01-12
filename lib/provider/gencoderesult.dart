@@ -14,9 +14,6 @@ class GencodeResultNotifier extends Notifier<Widget> {
     state = PrettyQrView.data(
       decoration: const PrettyQrDecoration(
         shape: PrettyQrSmoothSymbol(),
-        // image: PrettyQrDecorationImage(
-        //   image: AssetImage('assets/1601911439185.jpg'),
-        // ),
       ),
       data: data,
     ) as Widget;
