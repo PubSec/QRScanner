@@ -11,6 +11,7 @@ class ScanResultNotifier extends Notifier<String> {
   //method to update the state
   QRCodeDartScanView getScanResult() {
     return QRCodeDartScanView(
+      scanInvertedQRCode: true,
       resolutionPreset: QRCodeDartScanResolutionPreset.max,
       onCapture: (Result result) {
         state = result.text;
